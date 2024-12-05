@@ -82,7 +82,7 @@ export const Task = ({ task }: TaskProps) => {
           {formattedStartDate && <span>{formattedStartDate}</span>}
 
           {formattedStartDate && formattedDueDate && (
-            <span className="mx-1">&middot;</span>
+            <span className="mx-1">-</span>
           )}
 
           {formattedDueDate && <span>{formattedDueDate}</span>}
