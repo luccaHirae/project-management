@@ -1,5 +1,4 @@
-"use client";
-
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useRef } from "react";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import {
@@ -11,6 +10,7 @@ import {
 import globalReducer from "@/state";
 import { api } from "@/state/api";
 import { setupListeners } from "@reduxjs/toolkit/query";
+
 import {
   persistStore,
   persistReducer,
@@ -27,13 +27,13 @@ import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 /* REDUX PERSISTENCE */
 const createNoopStorage = () => {
   return {
-    getItem() {
+    getItem(_key: never) {
       return Promise.resolve(null);
     },
-    setItem(_key: string, value: string) {
+    setItem(_key: never, value: never) {
       return Promise.resolve(value);
     },
-    removeItem() {
+    removeItem(_key: never) {
       return Promise.resolve();
     },
   };
