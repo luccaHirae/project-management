@@ -1,9 +1,9 @@
 "use client";
 
-import { Navbar } from "@/app/(components)/navbar";
-import { Sidebar } from "@/app/(components)/sidebar";
-import StoreProvider, { useAppSelector } from "@/app/redux";
 import { useEffect } from "react";
+import StoreProvider, { useAppSelector } from "@/app/redux";
+import { Sidebar } from "@/components/sidebar";
+import { Navbar } from "@/components/navbar";
 
 interface DashboardWrapperProps {
   children: React.ReactNode;
