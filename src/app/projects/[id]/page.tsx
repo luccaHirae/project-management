@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ProjectHeader } from "@/app/projects/project-header";
 import { BoardView } from "@/app/projects/board-view";
+import { ListView } from "@/app/projects/list-view";
 
 interface ProjectProps {
   params: {
@@ -22,6 +23,10 @@ export default function Project({ params }: ProjectProps) {
 
       {activeTab === "Board" && (
         <BoardView id={id} setIsNewTaskModalOpen={setIsNewTaskModalOpen} />
+      )}
+
+      {activeTab === "List" && (
+        <ListView id={id} setIsNewTaskModalOpen={setIsNewTaskModalOpen} />
       )}
     </div>
   );
