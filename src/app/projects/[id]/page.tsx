@@ -5,6 +5,7 @@ import { ProjectHeader } from "@/app/projects/project-header";
 import { BoardView } from "@/app/projects/board-view";
 import { ListView } from "@/app/projects/list-view";
 import { TimelineView } from "@/app/projects/timeline-view";
+import { TableView } from "@/app/projects/table-view";
 
 interface ProjectProps {
   params: {
@@ -32,6 +33,10 @@ export default function Project({ params }: ProjectProps) {
 
       {activeTab === "Timeline" && (
         <TimelineView id={id} setIsNewTaskModalOpen={setIsNewTaskModalOpen} />
+      )}
+
+      {activeTab === "Table" && (
+        <TableView id={id} setIsNewTaskModalOpen={setIsNewTaskModalOpen} />
       )}
     </div>
   );
