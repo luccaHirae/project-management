@@ -58,20 +58,3 @@ body,
 .timeline ._29NTg {
   @apply dark:text-neutral-500;
 }
-
-/* SCROLLBAR STYLING */
-::-webkit-scrollbar {
-  width: 7px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-gray-200;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply rounded-full bg-gray-400;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-500;
-}
