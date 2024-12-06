@@ -39,7 +39,7 @@ export const Navbar = () => {
           onClick={() => dispatch(setIsDarkMode(!isDarkMode))}
           className={
             isDarkMode
-              ? `rounded p-2 dark:bg-gray-700`
+              ? `rounded p-2 hover:bg-gray-700`
               : `rounded p-2 hover:bg-gray-100`
           }
         >
@@ -54,7 +54,7 @@ export const Navbar = () => {
           href="/settings"
           className={
             isDarkMode
-              ? `h-min w-min rounded p-2 dark:bg-gray-700`
+              ? `h-min w-min rounded p-2 hover:bg-gray-700`
               : `h-min w-min rounded p-2 hover:bg-gray-100`
           }
         >
