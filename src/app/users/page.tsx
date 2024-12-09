@@ -50,11 +50,6 @@ const columns: GridColDef[] = [
       </div>
     ),
   },
-  {
-    field: "role",
-    headerName: "Role",
-    width: 200,
-  },
 ];
 
 export default function UsersPage() {
