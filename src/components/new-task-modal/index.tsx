@@ -7,7 +7,7 @@ import { Priority, Status } from "@/constants";
 interface NewProjectModalProps {
   isOpen: boolean;
   onClose: () => void;
-  projectId: string;
+  projectId?: string | null;
 }
 
 interface Form {
@@ -20,6 +20,7 @@ interface Form {
   dueDate: string;
   authorUserId: string;
   assignedUserId: string;
+  projectId: string;
 }
 
 export const NewTaskModal = ({
@@ -38,6 +39,7 @@ export const NewTaskModal = ({
     dueDate: "",
     authorUserId: "",
     assignedUserId: "",
+    projectId: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -86,7 +88,8 @@ export const NewTaskModal = ({
       assignedUserId,
     } = form;
 
-    if (!title || !authorUserId) return;
+    if (!title || !authorUserId || !(projectId !== null || form.projectId))
+      return;
 
     const formattedStartDate = formatISO(new Date(startDate), {
       representation: "complete",
@@ -105,12 +108,15 @@ export const NewTaskModal = ({
       dueDate: formattedDueDate,
       authorUserId: parseInt(authorUserId),
       assignedUserId: parseInt(assignedUserId),
-      projectId: Number(projectId),
+      projectId:
+        projectId !== null ? Number(projectId) : Number(form.projectId),
     });
   };
 
   const isFormValid = () => {
-    return form.title && form.authorUserId;
+    return (
+      form.title && form.authorUserId && !(projectId !== null || form.projectId)
+    );
   };
 
   const inputStyles =
@@ -215,6 +221,17 @@ export const NewTaskModal = ({
           onChange={handleChange}
           className={inputStyles}
         />
+
+        {projectId === null && (
+          <input
+            type="text"
+            placeholder="Project ID"
+            name="projectId"
+            value={form.projectId}
+            onChange={handleChange}
+            className={inputStyles}
+          />
+        )}
 
         <button
           type="submit"
