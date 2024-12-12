@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import StoreProvider, { useAppSelector } from "@/app/redux";
 import { Sidebar } from "@/components/sidebar";
 import { Navbar } from "@/components/navbar";
+import { AuthProvider } from "@/app/auth-provider";
 
 interface DashboardWrapperProps {
   children: React.ReactNode;
@@ -42,7 +43,9 @@ const DashboardLayout = ({ children }: DashboardWrapperProps) => {
 export const DashboardWrapper = ({ children }: DashboardWrapperProps) => {
   return (
     <StoreProvider>
-      <DashboardLayout>{children}</DashboardLayout>
+      <AuthProvider>
+        <DashboardLayout>{children}</DashboardLayout>
+      </AuthProvider>
     </StoreProvider>
   );
 };
