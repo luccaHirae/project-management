@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useAppSelector } from "@/app/redux";
-import { useGetUserTasksQuery } from "@/state/api";
+import { useGetAuthUserQuery, useGetUserTasksQuery } from "@/state/api";
 import { Priority } from "@/constants";
 import { NewTaskModal } from "@/components/new-task-modal";
 import { Header } from "@/components/header";
@@ -73,7 +73,10 @@ export const PriorityGeneric = ({ priority }: PriorityGenericProps) => {
   const [view, setView] = useState<"list" | "table">("list");
   const [isNewTaskModalOpen, setIsNewTaskModalOpen] = useState(false);
 
-  const userId = 1; // TODO: get user id from auth library
+  const { data: currentUser } = useGetAuthUserQuery({});
+
+  const userId = currentUser?.userDetails.userId ?? 0;
+
   const {
     data: task,
     isLoading,
